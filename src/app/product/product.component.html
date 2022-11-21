@@ -1,18 +1,30 @@
-<ion-card>
+<br>
+
+<ion-button size="small" (click)="fontSize = fontSize + 1">+</ion-button>
+<ion-button size="small" (click)="fontSize = fontSize - 1">-</ion-button>
+
+<ion-card *ngFor="let product of products;let i = index">
   <ion-card-content>
-    <ion-img src="{{ productImg }}"></ion-img>
-    <h4><b>{{ productName }}</b></h4>
-    <p>{{ productPrice }}</p>
-    <p>Discount price: Rp. {{ netPrice }}</p>
-    <p>Voucher {{ kodeVoucher }} akan digunakan.</p>
+    <ion-chip>{{ i + 1 }}</ion-chip>
+    <ion-img src="../assets/product/{{ product.url }}"></ion-img>
+    <h4 [ngStyle]="{'fontSize': fontSize + 'pt'}"><b>{{ product.name }}</b></h4>
+    <p [ngStyle]="{'fontSize': fontSize + 'pt'}" *ngIf="product.disc > 0">
+      <s [ngStyle]="{'color': 'red', 'font-weight':'bold'}">Rp. {{ product.price }}</s>
+    </p>
+    <p [ngStyle]="{'fontSize': fontSize + 'pt'}">Discount price: Rp. {{ product.price - (product.price * product.disc) }}</p>
+    <p *ngIf="kodeVoucher">Voucher {{ kodeVoucher }} akan digunakan.</p>
+    <ion-button (click)="showMoreClick(i)">Show More</ion-button>
+    <ul *ngIf="idx === i">
+      <li *ngFor="let spec of product.spec">{{spec}}</li>
+    </ul>
   </ion-card-content>
 </ion-card>
 
-<ion-item>
+<!-- <ion-item>
   <ion-label position="floating">Kode Voucher</ion-label>
-  <ion-input (input)="checkVoucher($event)" [(ngModel)]="kodeVoucher" ></ion-input>
+  <ion-input (input)="checkVoucher($event)" [(ngModel)]="kodeVoucher"></ion-input>
 </ion-item>
 
 <ion-button (click)="applyDiscount()" [color]="btnColor" [disabled]="btnDisable">
   Apply Diskon
-</ion-button>
+</ion-button> -->
