@@ -10,11 +10,14 @@ import { TglhariiniComponent } from './tglhariini/tglhariini.component';
 import { ProductComponent } from './product/product.component';
 import { FormsModule } from '@angular/forms';
 import { CegahcovidComponent } from './cegahcovid/cegahcovid.component';
+import { ProductService } from './product.service';
 
 @NgModule({
   declarations: [AppComponent, TglhariiniComponent, ProductComponent, CegahcovidComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, ProductService
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

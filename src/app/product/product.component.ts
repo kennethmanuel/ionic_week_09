@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProductModel } from '../product.model';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product',
@@ -7,7 +8,9 @@ import { ProductModel } from '../product.model';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
-  @Input() products: any;
+  // @Input() products: any;
+  products: any = [];
+
   productName = 'Nintendo Switch';
   productPrice = 8000000;
   productImg = '../assets/product/switch.jpg';
@@ -27,11 +30,11 @@ export class ProductComponent implements OnInit {
   //   { name: 'Iphone X', price: 6300000, disc: 0.25, url: 'iphone_x.jpg', spec: ['5gb', 'e', '188gb'] }
   // ];
 
+  constructor(public ps: ProductService) { }
 
-
-  constructor() { }
-
-  ngOnInit() { }
+  ngOnInit(): void {
+    this.products = this.ps.productsPhone;
+  }
 
   discountPrice(): number {
     return this.productPrice - (this.productPrice * 0.2);
