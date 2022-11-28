@@ -11,12 +11,15 @@ import { CegahcovidComponent } from './cegahcovid/cegahcovid.component';
 import { ProductService } from './product.service';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
+import { MovieComponent } from './movie/movie.component';
+import { MoviedetailComponent } from './moviedetail/moviedetail.component';
 
 const appRoutes: Routes = [
   { path: 'product', component: ProductComponent },
   { path: 'covid', component: CegahcovidComponent },
   { path: 'detail/:id', component: ProductdetailComponent },
-  // { path: 'newproduct', component: ProductformComponent },
+  { path: 'movie', component: MovieComponent },
+  { path: 'moviedetail/:id', component: MoviedetailComponent },
 ];
 
 @NgModule({
@@ -25,7 +28,9 @@ const appRoutes: Routes = [
     TglhariiniComponent,
     ProductComponent,
     CegahcovidComponent,
-    ProductdetailComponent
+    ProductdetailComponent,
+    MovieComponent,
+    MoviedetailComponent,
   ],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule,
     RouterModule.forRoot(appRoutes)
