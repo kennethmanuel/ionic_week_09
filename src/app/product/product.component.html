@@ -1,7 +1,7 @@
 <br>
 
-<ion-button size="small" (click)="fontSize = fontSize + 1">+</ion-button>
-<ion-button size="small" (click)="fontSize = fontSize - 1">-</ion-button>
+<!-- <ion-button size="small" (click)="fontSize = fontSize + 1">+</ion-button>
+<ion-button size="small" (click)="fontSize = fontSize - 1">-</ion-button> -->
 
 <ion-card *ngFor="let product of products;let i = index">
   <ion-card-content>
@@ -11,11 +11,12 @@
     <p [ngStyle]="{'fontSize': fontSize + 'pt'}" *ngIf="product.disc > 0">
       <s [ngStyle]="{'color': 'red', 'font-weight':'bold'}">Rp. {{ product.price }}</s>
     </p>
-    <p [ngStyle]="{'fontSize': fontSize + 'pt'}">Discount price: Rp. {{ product.price - (product.price * product.disc) }}</p>
+    <p [ngStyle]="{'fontSize': fontSize + 'pt'}">Discount price: Rp. {{ product.price - (product.price * product.disc)
+      }}</p>
     <p *ngIf="kodeVoucher">Voucher {{ kodeVoucher }} akan digunakan.</p>
     <ion-button (click)="showMoreClick(i)">Show More</ion-button>
     <ul *ngIf="idx === i">
-      <li *ngFor="let spec of product.spec">{{spec}}</li>
+      <!-- <li *ngFor="let spec of product.spec">{{spec}}</li> -->
     </ul>
   </ion-card-content>
 </ion-card>
