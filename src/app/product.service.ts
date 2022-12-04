@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ProductModel } from './product.model';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,4 +16,8 @@ export class ProductService {
   ];
 
   constructor() { }
+
+  productList(): Observable<any> {
+    return of("ini nanti json products");
+  }
 }
