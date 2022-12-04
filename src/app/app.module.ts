@@ -13,6 +13,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
 import { MovieComponent } from './movie/movie.component';
 import { MoviedetailComponent } from './moviedetail/moviedetail.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'product', component: ProductComponent },
@@ -32,8 +33,13 @@ const appRoutes: Routes = [
     MovieComponent,
     MoviedetailComponent,
   ],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule,
-    RouterModule.forRoot(appRoutes)
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, ProductService

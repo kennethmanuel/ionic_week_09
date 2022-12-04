@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ProductModel } from './product.model';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,9 @@ export class ProductService {
     new ProductModel('Iphone X', 6300000, 0.25, 'iphone_x.jpg', 'Apple iPhone X berlayar super retina 5.8" dengan design tanpa tombol Home, dibekali teknologi sekuriti terbaru Face ID membantu mengunlock, melakukan pembayaran hanya dengan menggunakan wajah Anda.')
   ];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   productList(): Observable<any> {
-    return of("ini nanti json products");
+    return this.http.get("https://ubaya.fun/hybrid/160419041/pmn/products.php");
   }
 }

@@ -3,9 +3,6 @@
 <!-- <ion-button size="small" (click)="fontSize = fontSize + 1">+</ion-button>
 <ion-button size="small" (click)="fontSize = fontSize - 1">-</ion-button> -->
 
-<h1>{{ json }}</h1>
-<ion-button (click)="listProduct()">Get Product</ion-button>
-
 <ion-card *ngFor="let product of products;let i = index">
   <ion-card-content>
     <ion-chip>{{ i + 1 }}</ion-chip>

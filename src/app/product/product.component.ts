@@ -28,12 +28,14 @@ export class ProductComponent implements OnInit {
   listProduct() {
     this.ps.productList().subscribe(
       (data) => {
-        this.json = data;
+        // this.json = data[0]['name'];
+        this.products = data;
       });
   }
 
   ngOnInit(): void {
-    this.products = this.ps.productsPhone;
+    // this.products = this.ps.productsPhone;
+    this.listProduct();
   }
 
   discountPrice(): number {
