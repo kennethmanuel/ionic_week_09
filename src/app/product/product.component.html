@@ -14,7 +14,7 @@
     <p [ngStyle]="{'fontSize': fontSize + 'pt'}">Discount price: Rp. {{ product.price - (product.price * product.disc)
       }}</p>
     <p *ngIf="kodeVoucher">Voucher {{ kodeVoucher }} akan digunakan.</p>
-    <ion-label color='primary' routerLink='/detail/{{i}}'> detail</ion-label>
+    <ion-label color='primary' routerLink='/detail/{{i + 1}}'> detail</ion-label>
     <!-- <ion-button (click)="showMoreClick(i)">Show More</ion-button>
     <ul *ngIf="idx === i">
       <li *ngFor="let spec of product.spec">{{spec}}</li>

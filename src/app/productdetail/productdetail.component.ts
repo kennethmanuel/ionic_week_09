@@ -18,11 +18,26 @@ export class ProductdetailComponent implements OnInit {
 
   ngOnInit() {
     let id: number = this.Route.snapshot.params['id'];
-    let pm: ProductModel = this.ps.productsPhone[id];
-    this.name = pm.name;
-    this.price = pm.price;
-    this.url = pm.url;
-    this.desc = pm.desc;
+    // let pm: ProductModel = this.ps.productsPhone[id];
+    this.productDetail(id);
+    console.log(this.name);
+
+    // this.name = pm.name;
+    // this.price = pm.price;
+    // this.url = pm.url;
+    // this.desc = pm.desc;
   }
+
+  productDetail(id: number) {
+    this.ps.productDetail(id).subscribe(
+      (data) => {
+        this.name = data['name'];
+        this.price = data['price'];
+        this.url = data['url'];
+        this.desc = data['desc'];
+      }
+    )
+  }
+
 
 }

@@ -30,7 +30,8 @@ export class ProductComponent implements OnInit {
       (data) => {
         // this.json = data[0]['name'];
         this.products = data;
-      });
+      }
+    );
   }
 
   ngOnInit(): void {
