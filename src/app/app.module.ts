@@ -14,6 +14,7 @@ import { ProductdetailComponent } from './productdetail/productdetail.component'
 import { MovieComponent } from './movie/movie.component';
 import { MoviedetailComponent } from './moviedetail/moviedetail.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ProductformComponent } from './productform/productform.component';
 
 const appRoutes: Routes = [
   { path: 'product', component: ProductComponent },
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   { path: 'detail/:id', component: ProductdetailComponent },
   { path: 'movie', component: MovieComponent },
   { path: 'moviedetail/:id', component: MoviedetailComponent },
+  { path: 'addproduct', component: ProductformComponent },
 ];
 
 @NgModule({
@@ -32,6 +34,7 @@ const appRoutes: Routes = [
     ProductdetailComponent,
     MovieComponent,
     MoviedetailComponent,
+    ProductformComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { ProductModel } from './product.model';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,15 @@ export class ProductService {
 
   productList(): Observable<any> {
     return this.http.get("https://ubaya.fun/hybrid/160419041/pmn/products.php");
+  }
+
+  newProduct(name: string, price: number, disc: number, url: string, desc: string): Observable<any> {
+    let body = new HttpParams();
+    body = body.set('name', name);
+    body = body.set('price', price.toString());
+    body = body.set('disc', disc.toString());
+    body = body.set('url', url);
+    body = body.set('desc', desc);
+    return this.http.post("https://ubaya.fun/hybrid/160419041/pmn/addproduct.php", body);
   }
 }
